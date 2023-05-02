@@ -71,3 +71,4 @@ pinecone_vectorstore.add_documents(documents=split_documents)
 
 if DEBUG:
     print('All vectors have been upserted into database')
+    print(index.describe_index_stats())
