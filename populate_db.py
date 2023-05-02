@@ -10,7 +10,11 @@ from langchain.embeddings import HuggingFaceEmbeddings
 
 from config import *
 
-DEBUG = True if sys.argv[1] == 'debug' else False
+DEBUG = False
+
+if len(sys.argv) > 1:
+    if sys.argv[1] == 'debug':
+        DEBUG = True
 
 # initialize pinecone
 pinecone.init(
@@ -61,6 +65,8 @@ embedding_function = HuggingFaceEmbeddings(
 pinecone_vectorstore = langchain_pinecone(
     index=index, embedding_function=embedding_function, text_key="text")
 
+if DEBUG:
+    print('Embedding documents and adding to database...')
 pinecone_vectorstore.add_documents(documents=split_documents)
 
 if DEBUG:
