@@ -12,6 +12,11 @@ numpy = "1.24.2"
 pinecone-client = "2.2.1"
 sentence-transformers = "*"
 openai = "*"
+bs4 = "*"
+beautifulsoup4 = "*"
+lxml = "*"
+requests = "*"
+config = "*"
 
 [dev-packages]
 
